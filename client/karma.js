@@ -131,11 +131,25 @@ var Karma = function (socket, iframe, opener, navigator, location) {
       startEmitted = true
     }
 
-    if (resultsBufferLimit === 1) {
-      return socket.emit('result', result)
+    var fixedResult = {}
+
+    for (var propertyName in result) {
+      if (result.hasOwnProperty(propertyName)) {
+        var propertyValue = result[propertyName]
+
+        if (Object.prototype.toString.call(propertyValue) === '[object Array]') {
+          fixedResult[propertyName] = Array.prototype.slice.call(propertyValue)
+        } else {
+          fixedResult[propertyName] = propertyValue
+        }
+      }
     }
 
-    resultsBuffer.push(result)
+    if (resultsBufferLimit === 1) {
+      return socket.emit('result', fixedResult)
+    }
+
+    resultsBuffer.push(fixedResult)
 
     if (resultsBuffer.length === resultsBufferLimit) {
       socket.emit('result', resultsBuffer)
