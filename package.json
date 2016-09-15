@@ -1,5 +1,5 @@
 {
-  "name": "karma",
+  "name": "@kostia/karma",
   "description": "Spectacular Test Runner for JavaScript.",
   "homepage": "http://karma-runner.github.io/",
   "repository": {
