@@ -1,3 +1,8 @@
+<a name="0.13.25"></a>
+## [0.13.25](https://github.com/karma-runner/karma/compare/v0.13.24...v0.13.25) (2016-09-15)
+
+
+
 <a name="0.13.24"></a>
 ## [0.13.24](https://github.com/karma-runner/karma/compare/v0.13.23...v0.13.24) (2016-09-15)
 
